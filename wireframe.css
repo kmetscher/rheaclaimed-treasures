@@ -1,0 +1,277 @@
+@font-face {
+    font-family: Cookie, cursive;
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+}
+@font-face {
+    font-family: Figtree, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    src: url('https://fonts.googleapis.com/css2?family=Figtree:wght@500&display=swap');
+}
+
+* {
+    color: black;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 10vw 40vw 40vw;
+    align-items: center;
+    background-color: black;
+    padding: 2vw;
+}
+
+.logo {
+    max-height: 4vw;
+    min-width: auto;
+}
+
+.sitetitle {
+    font-family: 'Cookie', cursive;
+    font-size: 4vw;
+    margin: 1vw 0 1vw 0;
+    color: white;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    font-family: Figtree;
+}
+
+nav a {
+    color: white;
+    font-size: 2vw;
+}
+
+.main-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heros {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    font-family: Figtree;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 25vw 25vw;
+    padding: 1vw;
+    margin-top: 1vw;
+    border-style: solid;
+    border-color: black;
+}
+
+.text {
+    margin-right: 2vw;
+}
+
+a {
+    transition: all, 0.25s;
+}
+
+a:hover {
+    color: dimgrey;
+    scale: 110%;
+}
+
+.buy-me {
+    padding: 1vw;
+    margin: 1vw 0 0 0;
+    background-color: black;
+    color: white;
+    display: block;
+    transition: background-color, 0.25s;
+}
+
+.buy-me:hover {
+    background-color: dimgrey;
+}
+
+.category-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.visual {
+    max-width: fit-content;
+}
+
+.heroimage {
+    max-height: 100%;
+    max-width: 25vw;
+}
+
+.product {
+    display: grid;
+    grid-template-columns: 50vw;
+    grid-template-rows: 50vw auto;
+    padding: 1vw;
+    margin-top: 1vw;
+    border-style: solid;
+    border-color: black;
+}
+
+.product-visual {
+    justify-self: center;
+}
+
+.product-visual img {
+    max-width: 50vw;
+    max-height: 100%;
+}
+
+.product-text {
+    font-family: Figtree;
+}
+
+.product-text h2 {
+    font-size: 3vw;
+    margin: 1vw 0 1vw 0;
+}
+
+.product input, .product textarea {
+    box-sizing: border-box;
+    display: block;
+    width: 50vw;
+    resize: none;
+}
+
+@media screen and (max-width:800px) {
+    header {
+        display: grid;
+        grid-template-columns: 20vw 70vw;
+        grid-template-rows: 80% 20%;
+        align-items: center;
+        background-color: black;
+        padding: 4vw;
+    }
+    
+    .logo {
+        max-height: 8vw;
+        min-width: auto;
+    }
+    
+    .sitetitle {
+        font-family: 'Cookie', cursive;
+        font-size: 8vw;
+        margin: 1vw 0 1vw 0;
+        color: white;
+    }
+    
+    nav {
+        grid-row: 2;
+        grid-column: 1 / 3;
+        display: flex;
+        justify-content: space-between;
+        font-family: Figtree;
+    }
+
+    nav a {
+        color: white;
+        font-size: 4vw;
+    }
+    
+    .main-flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .heros {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-self: center;
+        font-family: Figtree;
+    }
+    
+    .hero {
+        display: grid;
+        grid-template-columns: 45vw 45vw;
+        padding: 1vw;
+        margin-top: 1vw;
+        border-style: solid;
+        border-color: black;
+    }
+    
+    .text {
+        grid-row: 1;
+        grid-column: 1;
+        margin-right: 2vw;
+    }
+
+    .short-description {
+        display: none;
+    }
+    
+    .buy-me {
+        padding: 1vw;
+        margin: 2vw 0 0 0;
+        background-color: black;
+        color: white;
+        display: block;
+    }
+    
+    .categories {
+        display: none;
+    }
+    
+    .visual {
+        max-width: 45vw;
+    }
+    
+    .heroimage {
+        max-height: 100%;
+        max-width: 45vw;
+    }
+
+    .product {
+        display: grid;
+        grid-template-columns: 90vw;
+        grid-template-rows: 90vw auto;
+        padding: 1vw;
+        margin-top: 1vw;
+        border-style: solid;
+        border-color: black;
+    }
+    
+    .product-visual {
+        justify-self: center;
+    }
+    
+    .product-visual img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    .product-text {
+        font-family: Figtree;
+    }
+    
+    .product-text h2 {
+        font-size: 7vw;
+        margin: 1vw 0 1vw 0;
+    }
+
+    .product .categories {
+        display: block;
+    }
+    
+    .product input, .product textarea {
+        box-sizing: border-box;
+        display: block;
+        width: 90vw;
+        resize: none;
+    }
+}
