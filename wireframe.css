@@ -39,13 +39,15 @@ header {
 
 .main-flex {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .heros {
-    position: absolute;
-    top: 9vw;
+    position: relative;
+    top: -4vw;
     display: grid;
     grid-template-columns: 21vw 21vw 21vw;
     grid-template-rows: 21vw;
@@ -65,15 +67,15 @@ header {
 } 
 
 .railings-hero {
-    background-image: url('railings.jpg');
+    background-image: url('images/railings/railings.jpg');
 }
 
 .gates-hero {
-    background-image: url('gates.jpg');
+    background-image: url('images/gates/gates.jpg');
 }
 
 .signs-hero {
-    background-image: url('mcginnis.png');
+    background-image: url('images/signs/mcginnis.png');
 }
 
 .signs-hero:hover > h2, .railings-hero:hover > h2, .gates-hero:hover > h2 {
@@ -99,7 +101,6 @@ a:hover {
 
 .buy-me {
     padding: 1vw;
-    margin: 1vw 0 0 1vw;
     background-color: black;
     color: white;
     display: block;
@@ -110,10 +111,33 @@ a:hover {
     background-color: dimgrey;
 }
 
+.form-home, .form-product {
+    font-family: Figtree;
+}
+
+.form-home h1, .form-product h1 {
+    background-color: unset;
+    color: black;
+    font-family: Cookie;
+    font-size: 4vw;
+}
+
+.form-home {
+    position: relative;
+    top: -4vw;
+}
+
+input, textarea {
+    box-sizing: border-box;
+    display: block;
+    width: 62vw;
+    resize: none;
+}
+
 .product {
     display: grid;
-    grid-template-columns: 50vw;
-    grid-template-rows: 50vw auto;
+    grid-template-columns: 31vw 31vw;
+    grid-template-rows: auto;
     padding: 1vw;
     margin-top: 1vw;
     border-style: solid;
@@ -124,39 +148,40 @@ a:hover {
     justify-self: center;
 }
 
-.product-visual img {
-    max-width: 50vw;
+#product-image {
+    max-width: 31vw;
     max-height: 100%;
+    transition: opacity, 1s;
+}
+
+#product-image.transition {
+    opacity: 0;
 }
 
 .product-text {
     font-family: Figtree;
+    margin-left: 2vw;
 }
 
 .product-text h2 {
+    padding-left: 0;
     font-size: 3vw;
-    margin: 1vw 0 1vw 0;
-}
-
-input, textarea, h4 {
-    margin-left: 1vw;
-}
-
-input, textarea {
-    box-sizing: border-box;
-    display: block;
-    width: 60vw;
-    resize: none;
+    color: black;
+    background-color: unset;
 }
 
 @media screen and (max-width:800px) {
+    * {
+        color: black;
+    }
+    
     header {
         display: grid;
         grid-template-columns: 20vw 70vw;
-        grid-template-rows: 80% 20%;
         align-items: center;
+        justify-content: space-evenly;
         background-color: black;
-        padding: 4vw;
+        padding: 2vw;
     }
     
     .logo {
@@ -169,79 +194,121 @@ input, textarea {
         font-size: 8vw;
         margin: 1vw 0 1vw 0;
         color: white;
-    }
-    
-    nav {
-        grid-row: 2;
-        grid-column: 1 / 3;
-        display: flex;
-        justify-content: space-between;
-        font-family: Figtree;
-    }
-
-    nav a {
-        color: white;
-        font-size: 4vw;
+        background-color: black;
+        text-decoration: none;
     }
     
     .main-flex {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
     }
     
     .heros {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        justify-self: center;
+        position: relative;
+        top: -4vw;
+        display: grid;
+        grid-template-columns: 30vw 30vw 30vw;
+        grid-template-rows: 30vw;
         font-family: Figtree;
     }
     
-    .hero {
-        display: grid;
-        grid-template-columns: 45vw 45vw;
+    .signs-hero, .railings-hero, .gates-hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 1vw;
-        margin-top: 1vw;
+        margin: 1vw 1vw 1vw 1vw;
         border-style: solid;
         border-color: black;
+        background-size: contain;
+        cursor:pointer;
+    } 
+    
+    .railings-hero {
+        background-image: url('images/railings/railings.jpg');
     }
     
-    .text {
-        grid-row: 1;
-        grid-column: 1;
-        margin-right: 2vw;
+    .gates-hero {
+        background-image: url('images/gates/gates.jpg');
     }
-
-    .short-description {
-        display: none;
+    
+    .signs-hero {
+        background-image: url('images/signs/mcginnis.png');
+    }
+    
+    .signs-hero:hover > h2, .railings-hero:hover > h2, .gates-hero:hover > h2,
+    .signs-hero:active > h2, .railings-hero:active > h2, .gates-hero:active > h2 {
+        scale: 110%;
+    }
+    
+    h2 {
+        display: inline;
+        color: white;
+        background-color: black;
+        padding: 0.25vw;
+        transition: all, 0.25s;
+    }
+    
+    a {
+        transition: all, 0.25s;
+    }
+    
+    a:hover {
+        color: dimgrey;
+        scale: 110%;
     }
     
     .buy-me {
+        margin-top: 2vw;
         padding: 1vw;
-        margin: 2vw 0 0 0;
         background-color: black;
         color: white;
         display: block;
+        transition: background-color, 0.25s;
     }
     
-    .categories {
-        display: none;
+    .buy-me:hover {
+        background-color: dimgrey;
     }
     
-    .visual {
-        max-width: 45vw;
-    }
-    
-    .heroimage {
-        max-height: 100%;
-        max-width: 45vw;
+    .form-home, .form-product {
+        font-family: Figtree;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
+    .form-home form, .form-product form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-home h1, .form-product h1 {
+        background-color: unset;
+        color: black;
+        font-family: Cookie;
+        font-size: 10vw;
+    }
+    
+    .form-home {
+        position: relative;
+        top: -2vw;
+    }
+    
+    input, textarea {
+        box-sizing: border-box;
+        display: block;
+        width: 96vw;
+        resize: none;
+    }
+    
     .product {
         display: grid;
-        grid-template-columns: 90vw;
-        grid-template-rows: 90vw auto;
+        grid-template-columns: 80vw;
+        grid-template-rows: 80vw auto;
         padding: 1vw;
         margin-top: 1vw;
         border-style: solid;
@@ -252,28 +319,25 @@ input, textarea {
         justify-self: center;
     }
     
-    .product-visual img {
-        max-width: 100%;
+    #product-image {
+        max-width: 80vw;
         max-height: 100%;
+        transition: opacity, 1s;
+    }
+    
+    #product-image.transition {
+        opacity: 0;
     }
     
     .product-text {
         font-family: Figtree;
+        margin-left: 2vw;
     }
     
     .product-text h2 {
-        font-size: 7vw;
-        margin: 1vw 0 1vw 0;
-    }
-
-    .product .categories {
-        display: block;
-    }
-    
-    .product input, .product textarea {
-        box-sizing: border-box;
-        display: block;
-        width: 90vw;
-        resize: none;
+        padding-left: 0;
+        font-size: 6vw;
+        color: black;
+        background-color: unset;
     }
 }
