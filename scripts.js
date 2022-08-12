@@ -1,55 +1,41 @@
+const siteTitle = document.querySelector('.sitetitle');
 const mainFlex = document.querySelector('.main-flex');
 const mainContent = document.querySelector('.heros');
-const formProductType = document.querySelector('.product-type');
-const siteTitle = document.querySelector('.sitetitle');
-const railings = document.querySelector('.railings-hero');
-const gates = document.querySelector('.gates-hero');
 const signs = document.querySelector('.signs-hero');
-
+const gates = document.querySelector('.gates-hero');
+const railings = document.querySelector('.railings-hero');
 console.log(history.state);
-history.pushState({page: "home", name: "home"}, '');
+history.pushState({ page: "home", name: "home" }, '');
 
-function goHome() {
-    const pageForm = document.querySelector('.form-product');
-    const productDiv = document.querySelector('.product');
-    const productFlex = document.querySelector('.product-flex');
-    mainFlex.removeChild(productDiv);
-    mainFlex.appendChild(mainContent);
-    pageForm.setAttribute('class', 'form-home');
-    mainFlex.appendChild(pageForm);
-    history.pushState({page: "home", name: "home"}, '');
-    console.log(history.state)
-}
+import { productSlideshow } from "./modules/productSlideshow.js";
 
-function productSlideshow(data) {
-    let index = 0;
-    const productImage = document.querySelector('#product-image');
-    productImage.addEventListener('transitionend', () => {
-        productImage.removeAttribute('class');
-    })
-    setInterval(() => {
-        productImage.setAttribute('class', 'transition');
-        setTimeout(() => {
-            index++;
-            if (index === data.images.length) {
-                index = 0;
-            }
-            productImage.src = data.images[index];
-        }, 500);
-    }, 7500);
-    
+function goHome(init) {
+    if (!init) {
+        const pageForm = document.querySelector('.form-product');
+        const formProductType = document.querySelector('.product-type');
+        const productDiv = document.querySelector('.product');
+        const productFlex = document.querySelector('.product-flex');
+        mainFlex.removeChild(productDiv);
+        mainFlex.appendChild(mainContent);
+        pageForm.setAttribute('class', 'form-home');
+        mainFlex.appendChild(pageForm);
+        history.pushState({ page: "home", name: "home" }, '', '/');
+        console.log(history.state)
+    }
 }
 
 function changePage(pageName) {
     let infoToFetch;
     switch (pageName) {
-        case 'signs': infoToFetch = 'signs.json';
-        break;
-        case 'railings': infoToFetch = 'railings.json';
-        break;
-        case 'gates': infoToFetch = 'gates.json';
+        case 'signs': infoToFetch = 'modules/signs.json';
+            break;
+        case 'railings': infoToFetch = 'modules/railings.json';
+            break;
+        case 'gates': infoToFetch = 'modules/gates.json';
     }
     const pageForm = document.querySelector('.form-home');
+    const formProductType = document.querySelector('.product-type');
+
     const productFragment = new DocumentFragment();
     fetch(infoToFetch)
         .then((response) => response.json())
@@ -81,7 +67,7 @@ function changePage(pageName) {
             pageForm.setAttribute('class', 'form-product');
             mainFlex.removeChild(mainContent);
             productSlideshow(data);
-            history.pushState({page: "product", name: pageName}, '', pageName);
+            history.pushState({ page: "product", name: pageName }, '', pageName);
             console.log(history.state);
         });
 }
@@ -89,7 +75,8 @@ function changePage(pageName) {
 siteTitle.addEventListener('click', () => {
     event.preventDefault();
     goHome();
-})
+});
+
 signs.addEventListener('click', () => {
     changePage('signs');
 });
@@ -102,13 +89,13 @@ railings.addEventListener('click', () => {
 
 window.addEventListener('popstate', (e) => {
     if (e.state) {
-        switch(e.state.page) {
+        switch (e.state.page) {
             case "product": changePage(e.state.name);
-            break;
+                break;
             case "home": goHome();
-            break;
+                break;
         }
     }
-    history.back();
+    //history.back();
 }
 );

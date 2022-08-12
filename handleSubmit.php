@@ -12,11 +12,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <p>${_POST['questions']}</p>";
     echo $body;
     if (mail('kscott.mets@gmail.com', 
-    $subject, $body, 'From: orders@rheaclaimedtreasures.com')) {
-        echo "very cool kanye thank u";
+    $subject, $body, 'From: mazu@23.236.35.25')) {
+        echo "very cool kanye thank u <br>";
+        $error = error_get_last()['message'];
+        var_dump($error);
+
     }
     else {
         echo "aww wtf man";
+        $error = error_get_last()['message'];
+        var_dump($error);
     }
 }
 ?>
