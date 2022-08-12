@@ -4,6 +4,8 @@ const mainContent = document.querySelector('.heros');
 const signs = document.querySelector('.signs-hero');
 const gates = document.querySelector('.gates-hero');
 const railings = document.querySelector('.railings-hero');
+let interval;
+
 console.log(history.state);
 history.pushState({ page: "home", name: "home" }, '');
 
@@ -19,6 +21,7 @@ function goHome(init) {
         mainFlex.appendChild(mainContent);
         pageForm.setAttribute('class', 'form-home');
         mainFlex.appendChild(pageForm);
+        clearInterval(interval);
         history.pushState({ page: "home", name: "home" }, '', '/');
         console.log(history.state)
     }
@@ -66,7 +69,7 @@ function changePage(pageName) {
             mainFlex.appendChild(pageForm);
             pageForm.setAttribute('class', 'form-product');
             mainFlex.removeChild(mainContent);
-            productSlideshow(data);
+            interval = productSlideshow(data);
             history.pushState({ page: "product", name: pageName }, '', pageName);
             console.log(history.state);
         });
