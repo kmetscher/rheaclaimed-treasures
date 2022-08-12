@@ -1,0 +1,12 @@
+{
+    "name": "Railings",
+    "product-type": "railing",
+    "image": "images/railings/railings.jpg",
+    "images": 
+        ["/images/railings/railing1.png",
+        "/images/railings/railing2.png",
+        "/images/railings/railing3.png",
+        "/images/railings/railings.jpg"],
+    "description": "Lorem ipsum dolor sit amet",
+    "price": "$13.37"
+}

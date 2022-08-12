@@ -1,0 +1,12 @@
+{
+    "name": "Gates",
+    "product-type": "gate",
+    "image": "/images/gates/gates.jpg",
+    "images": 
+        ["/images/gates/gates.jpg", 
+        "/images/gates/gate1.png",
+        "/images/gates/gate2.png",
+        "/images/gates/gate3.png"],
+    "description": "Lorem ipsum dolor sit amet",
+    "price": "$13.37"
+}

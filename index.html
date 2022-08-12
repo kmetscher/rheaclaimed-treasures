@@ -1,0 +1,65 @@
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap&family=Figtree:wght@500&display=swap"
+        rel="stylesheet">
+    <link href="wireframe.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script src="scripts.js" defer></script>
+</head>
+
+<div class="container">
+    <div class="menus">
+        <header>
+            <img class="logo" src="templogo.png">
+            <h1><a class="sitetitle" href="">Rhea-Claimed Treasures</a></h1>
+        </header>
+    </div>
+    <div class="main-flex">
+        <div class="heros">
+            <div class="railings-hero">
+                <h2>Railings</h2>
+            </div>
+            <div class="gates-hero">
+                <h2>Gates</h2>
+            </div>
+            <div class="signs-hero">
+                <h2>Signs</h2>
+            </div>
+        </div>
+        <div class="form-home">
+            <h1>Get a quote today!</h1>
+            <form action="handleSubmit.php" method="post">
+                <label for="name">
+                    <h4>Name</h4>
+                </label>
+                <input type="text" id="name" name="name" required />
+                <label for="email">
+                    <h4>Email</h4>
+                </label>
+                <input type="email" id="email" name="email" />
+                <label for="phone">
+                    <h4>Phone</h4>
+                </label>
+                <input type="tel" id="phone" name="phone" required />
+                <label for="product-type">
+                    <h4>What kind of project?</h4>
+                </label>
+                <select name="product-type" id="product-type" required>
+                    <option>Choose one</option>
+                    <option value="railing">Railing</option>
+                    <option value="gate">Gate</option>
+                    <option value="sign">Sign</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="questions">
+                    <h4>Tell me about any imagery, shapes, or styles
+                        you want to see, and I'll get
+                        in touch with you to draw a mockup!
+                    </h4>
+                </label>
+                <textarea rows="4" name="questions" id="questions" required>
+                </textarea><br>
+                <input type="submit" class="buy-me" value="Submit" />
+            </form>
+        </div>
+    </div>
+</div>
