@@ -137,7 +137,7 @@ input, textarea {
 .product {
     display: grid;
     grid-template-columns: 31vw 31vw;
-    grid-template-rows: auto;
+    grid-template-rows: auto 8vw;
     padding: 1vw;
     margin-top: 1vw;
     border-style: solid;
@@ -146,6 +146,24 @@ input, textarea {
 
 .product-visual {
     justify-self: center;
+}
+
+.product-thumbs {
+    grid-row: 2 / 2;
+    grid-column: 1 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.product-thumbs img {
+    transition: all, 0.25s;
+}
+
+.product-thumbs .current {
+    border-style: solid;
+    border-color: black;
 }
 
 #product-image {

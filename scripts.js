@@ -75,8 +75,8 @@ function changePage(pageName) {
         });
 }
 
-siteTitle.addEventListener('click', () => {
-    event.preventDefault();
+siteTitle.addEventListener('click', (e) => {
+    e.preventDefault();
     goHome();
 });
 
@@ -99,6 +99,5 @@ window.addEventListener('popstate', (e) => {
                 break;
         }
     }
-    //history.back();
 }
 );
