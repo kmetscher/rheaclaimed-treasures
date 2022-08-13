@@ -4,6 +4,7 @@ const mainContent = document.querySelector('.heros');
 const signs = document.querySelector('.signs-hero');
 const gates = document.querySelector('.gates-hero');
 const railings = document.querySelector('.railings-hero');
+const productType = document.getElementById('type');
 let interval;
 
 console.log(history.state);
@@ -11,20 +12,18 @@ history.pushState({ page: "home", name: "home" }, '');
 
 import { productSlideshow } from "./modules/productSlideshow.js";
 
-function goHome(init) {
-    if (!init) {
-        const pageForm = document.querySelector('.form-product');
-        const formProductType = document.querySelector('.product-type');
-        const productDiv = document.querySelector('.product');
-        const productFlex = document.querySelector('.product-flex');
-        mainFlex.removeChild(productDiv);
-        mainFlex.appendChild(mainContent);
-        pageForm.setAttribute('class', 'form-home');
-        mainFlex.appendChild(pageForm);
-        clearInterval(interval);
-        history.pushState({ page: "home", name: "home" }, '', '/');
-        console.log(history.state)
-    }
+function goHome() {
+    const pageForm = document.querySelector('.form-product');
+    const productDiv = document.querySelector('.product');
+    const productFlex = document.querySelector('.product-flex');
+    productType.value = "Choose one";
+    mainFlex.removeChild(productDiv);
+    mainFlex.appendChild(mainContent);
+    pageForm.setAttribute('class', 'form-home');
+    mainFlex.appendChild(pageForm);
+    clearInterval(interval);
+    history.pushState({ page: "home", name: "home" }, '', '/');
+    console.log(history.state)
 }
 
 function changePage(pageName) {
@@ -37,7 +36,6 @@ function changePage(pageName) {
         case 'gates': infoToFetch = 'modules/gates.json';
     }
     const pageForm = document.querySelector('.form-home');
-    const formProductType = document.querySelector('.product-type');
 
     const productFragment = new DocumentFragment();
     fetch(infoToFetch)
@@ -64,6 +62,9 @@ function changePage(pageName) {
             productText.appendChild(productPrice);
             productText.appendChild(productDescription);
             productDiv.appendChild(productText);
+            let productThumbs = document.createElement('div');
+            productThumbs.setAttribute('class', 'product-thumbs');
+            productDiv.appendChild(productThumbs);
             productFragment.appendChild(productDiv);
             mainFlex.appendChild(productFragment);
             mainFlex.appendChild(pageForm);
@@ -82,12 +83,15 @@ siteTitle.addEventListener('click', (e) => {
 
 signs.addEventListener('click', () => {
     changePage('signs');
+    productType.value = "sign";
 });
 gates.addEventListener('click', () => {
     changePage('gates');
+    productType.value = "gate";
 });
 railings.addEventListener('click', () => {
     changePage('railings');
+    productType.value = "railing";
 });
 
 window.addEventListener('popstate', (e) => {

@@ -1,5 +1,10 @@
+<!DOCTYPE html>
+
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap&family=Figtree:wght@500&display=swap"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cookie&family=Figtree:wght@500&family=Playfair+Display:wght@900&display=swap"
         rel="stylesheet">
     <link href="wireframe.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -9,8 +14,16 @@
 <div class="container">
     <div class="menus">
         <header>
-            <img class="logo" src="templogo.png">
-            <h1><a class="sitetitle" href="">Rhea-Claimed Treasures</a></h1>
+            <img class="logo" src="images/logo.png">
+            <h1><a class="sitetitle" href="">RHEACLAIMED TREASURES</a></h1>
+            <div class="socials">
+                <a href="https://facebook.com/profile.php?id=100073875793861">
+                    <img src="images/icons/facebook.png" />
+                </a>
+                <a href="https://www.instagram.com/rheaclaimed_treasures/">
+                    <img src="images/icons/instagram.png" />
+                </a>
+            </div>
         </header>
     </div>
     <div class="main-flex">
@@ -43,12 +56,12 @@
                 <label for="product-type">
                     <h4>What kind of project?</h4>
                 </label>
-                <select name="product-type" id="product-type" required>
+                <select name="type" id="type" required>
                     <option>Choose one</option>
-                    <option value="railing">Railing</option>
-                    <option value="gate">Gate</option>
-                    <option value="sign">Sign</option>
-                    <option value="other">Other</option>
+                    <option id="railing" value="railing">Railing</option>
+                    <option id="gate" value="gate">Gate</option>
+                    <option id="sign" value="sign">Sign</option>
+                    <option id="other" value="other">Other</option>
                 </select>
                 <label for="questions">
                     <h4>Tell me about any imagery, shapes, or styles
