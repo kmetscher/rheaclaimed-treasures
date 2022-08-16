@@ -1,42 +1,38 @@
 <?php
-try {
-    $orders = new PDO('mysql:host=localhost;dbname=rhea', 'web', 'skeet');
-    $orders->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $exception) {
-    echo $exception->getMessage();
-    die();
-}
+require_once('admin/db.php');
 
+$phoneRegex = "/^[\+]?[(]?\d{3}?[)]?[-\s\.]";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    foreach ($_POST as $formEntry => $value) {
-        echo "$formEntry: $value<br>";
-        echo "<br>";
-    }
-    $subject = "New ${_POST['product-type']} order from ${_POST['name']}";
-    $body = "<h2>${_POST['name']} ordered a ${_POST['type']}</h2>
-    <h3>Customer phone: ${_POST['phone']}</h3>
-    <h3>Customer email: ${_POST['email']}</h3>
-    <h3>Design requests, questions:</h3>
-    <p>${_POST['questions']}</p>";
-    echo $body;
-
-    $stmt = $orders->prepare('INSERT INTO orders 
+    $formatting = array('-', '(', ')', '.', ' ');
+    $digits = str_replace($formatting, '', $_POST['phone']);
+    $type = htmlspecialchars(strip_tags($_POST['type']));
+    $name = htmlspecialchars(strip_tags($_POST['name']));
+    $email = htmlspecialchars(strip_tags($_POST['email']));
+    $questions = htmlspecialchars(strip_tags($_POST['questions']));
+    if(strlen($_POST['name']) > 0 && 
+    is_numeric($digits) &&
+    strlen($digits) > 9 && 
+    strlen($_POST['type']) > 0 && 
+    strlen($questions) > 0) {
+        $stmt = $orders->prepare('INSERT INTO orders 
         (customer_name, phone, email,
         `type`, questions) 
         VALUES (?, ?, ?, ?, ?)');
-    $stmt->bindParam(1, $_POST['name']);
-    $stmt->bindParam(2, $_POST['phone']);
-    $stmt->bindParam(3, $_POST['email']);
-    $stmt->bindParam(4, $_POST['type']);
-    $stmt->bindParam(5, $_POST['questions']);
-
-    try {
-        $stmt->execute();
+        $stmt->bindParam(1, $name);
+        $stmt->bindParam(2, $digits);
+        $stmt->bindParam(3, $email);
+        $stmt->bindParam(4, $type);
+        $stmt->bindParam(5, $questions);
+        try {
+            $stmt->execute();
+        }
+        catch (PDOException $exception) {
+            http_response_code(400);
+        }
     }
-    catch (PDOException $exception) {
-        echo $exception->getMessage();
+    else {
+        http_response_code(400);
     }
 
     /*if (mail('kscott.mets@gmail.com', 

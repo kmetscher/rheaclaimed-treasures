@@ -102,11 +102,63 @@ header {
 }
 
 h2 {
+    font-family: Figtree;
     display: inline;
     color: white;
     background-color: black;
     padding: 0.25vw;
     transition: all, 0.25s;
+}
+
+.orders {
+    font-family: Figtree;
+    padding: 0 10vw 0 10vw;
+}
+
+.order {
+    padding: 2vw;
+    margin-bottom: 2vw;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-color: black;
+}
+
+.order h2 {
+    background-color: unset;
+    color: black;
+    margin: 0 0 1vw 0;
+    padding: 0;
+}
+
+.order h3 {
+    margin: 0 0 1vw 0;
+    padding: 0;
+}
+
+.order-info, .order-header {
+    display: grid;
+    grid-template-columns: 15vw auto;
+    align-items: center;
+}
+
+.order-instructions {
+    display: grid;
+    grid-template-rows: 2vw auto;
+}
+
+.order-dates {
+    display: grid;
+    align-items: center;
+    grid-template-rows: 2vw 2vw 4vw;
+}
+
+.order button {
+    padding: 1vw;
+    border-style: none;
+    background-color: black;
+    color: white;
+    font-family: Figtree;
 }
 
 a {
@@ -130,18 +182,18 @@ a:hover {
     background-color: dimgrey;
 }
 
-.form-home, .form-product {
+.form  {
     font-family: Figtree;
 }
 
-.form-home h1, .form-product h1 {
+.form h1 {
     background-color: unset;
     color: black;
     font-family: Cookie;
     font-size: 4vw;
 }
 
-.form-home {
+.heros + .form {
     position: relative;
     top: -4vw;
 }
@@ -151,6 +203,9 @@ input, textarea {
     display: block;
     width: 62vw;
     resize: none;
+    border-style: solid;
+    border-color: black;
+    font-family: Figtree;
 }
 
 .product {
@@ -329,7 +384,7 @@ input, textarea {
         background-color: dimgrey;
     }
     
-    .form-home, .form-product {
+    .form {
         font-family: Figtree;
         display: flex;
         flex-direction: column;
@@ -337,19 +392,19 @@ input, textarea {
         align-items: center;
     }
 
-    .form-home form, .form-product form {
+    .form form {
         display: flex;
         flex-direction: column;
     }
     
-    .form-home h1, .form-product h1 {
+    .form h1 {
         background-color: unset;
         color: black;
         font-family: Cookie;
         font-size: 10vw;
     }
     
-    .form-home {
+    .heros + .form {
         position: relative;
         top: -2vw;
     }
@@ -414,5 +469,55 @@ input, textarea {
         font-size: 6vw;
         color: black;
         background-color: unset;
+    }
+
+    .orders {
+        font-family: Figtree;
+        padding: 0 10vw 0 10vw;
+    }
+    
+    .order {
+        padding: 2vw;
+        margin-bottom: 2vw;
+        display: flex;
+        flex-direction: column;
+        border-style: solid;
+        border-color: black;
+    }
+    
+    .order h2 {
+        background-color: unset;
+        color: black;
+        margin: 0 0 1vw 0;
+        padding: 0;
+    }
+    
+    .order h3 {
+        margin: 0 0 1vw 0;
+        padding: 0;
+    }
+    
+    .order-info, .order-header {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+    }
+    
+    .order-instructions {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .order-dates {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .order button {
+        padding: 2vw;
+        border-style: none;
+        background-color: black;
+        color: white;
+        font-family: Figtree;
     }
 }

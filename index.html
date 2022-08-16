@@ -38,25 +38,27 @@
                 <h2>Signs</h2>
             </div>
         </div>
-        <div class="form-home">
+        <div class="form">
             <h1>Get a quote today!</h1>
-            <form action="handleSubmit.php" method="post">
+            <form id="quote-form">
                 <label for="name">
-                    <h4>Name</h4>
+                    <h4>Name *</h4>
                 </label>
-                <input type="text" id="name" name="name" required />
+                <input type="text" id="name" name="name" required="required" />
                 <label for="email">
-                    <h4>Email</h4>
+                    <h4>Email *</h4>
                 </label>
-                <input type="email" id="email" name="email" />
+                <input type="email" id="email" name="email" required="required"
+                pattern="[\w]+@[\w]+\.[\w]+"/>
                 <label for="phone">
-                    <h4>Phone</h4>
+                    <h4>Phone *</h4>
                 </label>
-                <input type="tel" id="phone" name="phone" required />
+                <input type="tel" id="phone" name="phone" required="required" 
+                pattern="[?\(?\+\d{1,3}?\)?\s?\-]"/>
                 <label for="product-type">
-                    <h4>What kind of project?</h4>
+                    <h4>What kind of project? *</h4>
                 </label>
-                <select name="type" id="type" required>
+                <select name="type" id="type" required="required">
                     <option>Choose one</option>
                     <option id="railing" value="railing">Railing</option>
                     <option id="gate" value="gate">Gate</option>
@@ -66,11 +68,10 @@
                 <label for="questions">
                     <h4>Tell me about any imagery, shapes, or styles
                         you want to see, and I'll get
-                        in touch with you to draw a mockup!
+                        in touch with you to draw a mockup! *
                     </h4>
                 </label>
-                <textarea rows="4" name="questions" id="questions" required>
-                </textarea><br>
+                <textarea rows="4" name="questions" id="questions" required="required"></textarea><br>
                 <input type="submit" class="buy-me" value="Submit" />
             </form>
         </div>

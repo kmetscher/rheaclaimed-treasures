@@ -5,21 +5,21 @@ const signs = document.querySelector('.signs-hero');
 const gates = document.querySelector('.gates-hero');
 const railings = document.querySelector('.railings-hero');
 const productType = document.getElementById('type');
+const submit = document.querySelector('.buy-me');
 let interval;
 
-console.log(history.state);
 history.pushState({ page: "home", name: "home" }, '');
 
 import { productSlideshow } from "./modules/productSlideshow.js";
+import {handleSubmit} from "./modules/handleSubmit.js";
 
 function goHome() {
-    const pageForm = document.querySelector('.form-product');
+    const pageForm = document.querySelector('.form');
     const productDiv = document.querySelector('.product');
     const productFlex = document.querySelector('.product-flex');
     productType.value = "Choose one";
     mainFlex.removeChild(productDiv);
     mainFlex.appendChild(mainContent);
-    pageForm.setAttribute('class', 'form-home');
     mainFlex.appendChild(pageForm);
     clearInterval(interval);
     history.pushState({ page: "home", name: "home" }, '', '/');
@@ -35,7 +35,7 @@ function changePage(pageName) {
             break;
         case 'gates': infoToFetch = 'modules/gates.json';
     }
-    const pageForm = document.querySelector('.form-home');
+    const pageForm = document.querySelector('.form');
 
     const productFragment = new DocumentFragment();
     fetch(infoToFetch)
@@ -68,7 +68,6 @@ function changePage(pageName) {
             productFragment.appendChild(productDiv);
             mainFlex.appendChild(productFragment);
             mainFlex.appendChild(pageForm);
-            pageForm.setAttribute('class', 'form-product');
             mainFlex.removeChild(mainContent);
             interval = productSlideshow(data);
             history.pushState({ page: "product", name: pageName }, '', pageName);
@@ -80,6 +79,12 @@ siteTitle.addEventListener('click', (e) => {
     e.preventDefault();
     goHome();
 });
+
+submit.addEventListener('click', (e) => {
+    e.preventDefault();
+    const form = document.getElementById('quote-form');
+    handleSubmit(form);
+})
 
 signs.addEventListener('click', () => {
     changePage('signs');
