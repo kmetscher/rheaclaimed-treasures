@@ -153,6 +153,10 @@ h2 {
     grid-template-rows: 2vw 2vw 4vw;
 }
 
+.order-notes {
+    margin-bottom: 1vw;
+}
+
 .order button {
     padding: 1vw;
     border-style: none;

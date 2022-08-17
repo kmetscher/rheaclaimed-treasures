@@ -15,13 +15,22 @@
             .then((response) => response.json())
             .then((data) => productSlideshow(data));
     </script>
+    <script type="module" defer>
+        import { handleSubmit } from './modules/handleSubmit.js';
+        const submit = document.querySelector('.buy-me');
+        submit.addEventListener('click', (e) => {
+            e.preventDefault();
+            const form = document.getElementById('quote-form');
+            handleSubmit(form);
+        });
+    </script>
 </head>
 
 <body>
     <div class="container">
         <div class="menus">
             <header>
-                <img class="logo" src="logo.png">
+                <img class="logo" src="images/logo.png">
                 <h1><a class="sitetitle" href="/">RHEACLAIMED TREASURES</a></h1>
                 <div class="socials">
                     <a href="https://facebook.com/profile.php?id=100073875793861">
@@ -41,45 +50,48 @@
                 <div class="product-text">
                     <h2>Railings</h2>
                     <h3>$13.37</h3>
-                    <p>Lorem ipsum dolor sit amet</p>
+                    <p>Custom-made and designed metal railings for both indoor and outdoor use. Bring your own design,
+                        or let me bring your ideas to life with a custom one! Railings can be made any size, and can be
+                        fully OSHA-compliant for heights, gaps, and other safety considerations. Perfect for unique
+                        bannisters, decks, fencing accents, balconies, and more.</p>
                 </div>
                 <div class="product-thumbs">
 
                 </div>
             </div>
-            <div class="form-product">
+            <div class="form">
                 <h1>Get a quote today!</h1>
-                <form action="handleSubmit.php" method="post">
+                <form id="quote-form">
                     <label for="name">
-                        <h4>Name</h4>
+                        <h4>Name *</h4>
                     </label>
-                    <input type="text" id="name" name="name" required="">
+                    <input type="text" id="name" name="name" required="required" />
                     <label for="email">
-                        <h4>Email</h4>
+                        <h4>Email *</h4>
                     </label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" required="required" pattern="[\w]+@[\w]+\.[\w]+" />
                     <label for="phone">
-                        <h4>Phone</h4>
+                        <h4>Phone *</h4>
                     </label>
-                    <input type="tel" id="phone" name="phone" required="">
+                    <input type="tel" id="phone" name="phone" required="required" pattern="[?\(?\+\d{1,3}?\)?\s?\-]" />
                     <label for="product-type">
-                        <h4>What kind of project?</h4>
+                        <h4>What kind of project? *</h4>
                     </label>
-                    <select name="product-type" id="product-type" required="">
+                    <select name="type" id="type" required="required">
                         <option>Choose one</option>
-                        <option selected="selected" value="railing">Railing</option>
-                        <option value="gate">Gate</option>
-                        <option value="sign">Sign</option>
-                        <option value="other">Other</option>
+                        <option id="railing" value="railing">Railing</option>
+                        <option id="gate" value="gate">Gate</option>
+                        <option id="sign" value="sign">Sign</option>
+                        <option id="other" value="other">Other</option>
                     </select>
                     <label for="questions">
                         <h4>Tell me about any imagery, shapes, or styles
                             you want to see, and I'll get
-                            in touch with you to draw a mockup!
+                            in touch with you to draw a mockup! *
                         </h4>
                     </label>
-                    <textarea rows="4" name="questions" id="questions" required="">                </textarea><br>
-                    <input type="submit" class="buy-me" value="Submit">
+                    <textarea rows="4" name="questions" id="questions" required="required"></textarea><br>
+                    <input type="submit" class="buy-me" value="Submit" />
                 </form>
             </div>
         </div>

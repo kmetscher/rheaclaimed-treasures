@@ -6,7 +6,9 @@
         ["/images/railings/railing1.png",
         "/images/railings/railing2.png",
         "/images/railings/railing3.png",
-        "/images/railings/railings.jpg"],
-    "description": "Lorem ipsum dolor sit amet",
+        "/images/railings/railings.jpg",
+        "/images/railings/bannister.jpg",
+        "/images/railings/plainrailing.jpg"],
+    "description": "Custom-made and designed metal railings for both indoor and outdoor use. Bring your own design, or let me bring your ideas to life with a custom one! Railings can be made any size, and can be fully OSHA-compliant for heights, gaps, and other safety considerations. Perfect for unique bannisters, decks, fencing accents, balconies, and more.",
     "price": "$13.37"
 }
