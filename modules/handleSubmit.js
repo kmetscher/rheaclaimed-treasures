@@ -1,4 +1,5 @@
 export function handleSubmit(form) {
+    const loader = document.querySelector('.form .loader');
     const formValues = new FormData(form);
     const formDiv = document.querySelector('.form');
     const formFields = [
@@ -15,11 +16,14 @@ export function handleSubmit(form) {
     errorMessage.innerText = "Something went wrong; make sure all the required fields are filled out and correct, and try again.";
     errorMessage.setAttribute('id', 'error-message');
 
+    loader.setAttribute('class', 'loader-active');
+
     fetch('/handleSubmit.php', {
         method: 'POST',
         body: formValues
     })
     .then((response) => {
+        loader.setAttribute('class', 'loader');
         if (response.ok) {
             console.log('yeah');
             formDiv.removeChild(form);

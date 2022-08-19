@@ -9,6 +9,10 @@
         rel="stylesheet">
     <link href="wireframe.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Rheaclaimed Treasures</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="og:title" content="Rheaclaimed Treasures">
+    <meta name="og:image" content="https://rheaclaimedtreasures.com/images/logofull.jpg">
     <script type="module" defer>
         import { productSlideshow } from './modules/productSlideshow.js';
         fetch('modules/railings.json')
@@ -93,6 +97,7 @@
                     </label>
                     <textarea rows="4" name="questions" id="questions" required="required"></textarea><br>
                     <input type="submit" class="buy-me" value="Submit" />
+                    <div class="loader"></div>
                 </form>
             </div>
         </div>

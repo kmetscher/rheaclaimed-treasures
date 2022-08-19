@@ -6,6 +6,7 @@ const gates = document.querySelector('.gates-hero');
 const railings = document.querySelector('.railings-hero');
 const productType = document.getElementById('type');
 const submit = document.querySelector('.buy-me');
+const loader = document.querySelector('.loader');
 let interval;
 
 history.pushState({ page: "home", name: "home" }, '');
@@ -27,6 +28,7 @@ function goHome() {
 }
 
 function changePage(pageName) {
+    loader.setAttribute('class', 'loader-active');
     let infoToFetch;
     switch (pageName) {
         case 'signs': infoToFetch = 'modules/signs.json';
@@ -41,6 +43,7 @@ function changePage(pageName) {
     fetch(infoToFetch)
         .then((response) => response.json())
         .then((data) => {
+            loader.setAttribute('class', 'loader');
             let productDiv = document.createElement('div');
             productDiv.setAttribute('class', 'product');
             let productVisual = document.createElement('div');
