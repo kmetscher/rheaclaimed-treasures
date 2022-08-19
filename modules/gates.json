@@ -4,9 +4,9 @@
     "image": "/images/gates/gates.jpg",
     "images": 
         ["/images/gates/gates.jpg", 
-        "/images/gates/gate1.png",
-        "/images/gates/gate2.png",
-        "/images/gates/gate3.png"],
+        "/images/gates/gate1.jpg",
+        "/images/gates/gate2.jpg",
+        "/images/gates/gate3.jpg"],
     "description": "Custom-made driveway gates, cut to the exact size you need. Designs from intricate to simple, with considerations for security, open space, and anything else you may need! Leave a fantastic impression on your visitors with the first thing they see on your property.",
     "price": "$13.37"
 }

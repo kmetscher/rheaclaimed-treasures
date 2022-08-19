@@ -94,7 +94,7 @@ header {
 }
 
 .signs-hero {
-    background-image: url('images/signs/mcginnis.png');
+    background-image: url('images/signs/mcginnis.jpg');
 }
 
 .signs-hero:hover > h2, .railings-hero:hover > h2, .gates-hero:hover > h2 {
@@ -350,7 +350,7 @@ input, textarea {
     }
     
     .signs-hero {
-        background-image: url('images/signs/mcginnis.png');
+        background-image: url('images/signs/mcginnis.jpg');
     }
     
     .signs-hero:hover > h2, .railings-hero:hover > h2, .gates-hero:hover > h2,

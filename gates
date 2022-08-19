@@ -45,7 +45,7 @@
         <div class="main-flex">
             <div class="product">
                 <div class="product-visual">
-                    <img id="product-image" src="images/gates/gate3.png">
+                    <img id="product-image" src="images/gates/gate3.jpg">
                 </div>
                 <div class="product-text">
                     <h2>Gates</h2>
@@ -59,6 +59,7 @@
             <div class="form">
                 <h1>Get a quote today!</h1>
                 <form id="quote-form">
+                    <input type="hidden" name="honeybee" />
                     <label for="name">
                         <h4>Name *</h4>
                     </label>

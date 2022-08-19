@@ -1,15 +1,15 @@
 {
     "name": "Signs",
     "type": "sign",
-    "image": "/images/signs/mcginnis.png",
+    "image": "/images/signs/mcginnis.jpg",
     "images": 
-        ["/images/signs/bliege.png",
-        "/images/signs/engler.png",
-        "/images/signs/fenningsdorf.png",
+        ["/images/signs/bliege.jpg",
+        "/images/signs/engler.jpg",
+        "/images/signs/fenningsdorf.jpg",
         "/images/signs/sumner.jpg",
-        "/images/signs/mcginnis.png",
-        "/images/signs/rio.png",
-        "/images/signs/walstonridge.png"],
+        "/images/signs/mcginnis.jpg",
+        "/images/signs/rio.jpg",
+        "/images/signs/walstonridge.jpg"],
     "description": "Custom-made metal signs in any shape, size, and design, from lettering to imagery. Bring your own design, or let me bring your ideas to life with your photos, names, and phrases! Add a unique touch to house numbers, rooms, your business signage, or anything else.",
     "price": "$13.37"
 }
