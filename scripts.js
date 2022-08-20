@@ -62,7 +62,6 @@ function changePage(pageName) {
             let productDescription = document.createElement('p');
             productDescription.textContent = data.description;
             productText.appendChild(productHeader);
-            productText.appendChild(productPrice);
             productText.appendChild(productDescription);
             productDiv.appendChild(productText);
             let productThumbs = document.createElement('div');
