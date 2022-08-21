@@ -1,7 +1,7 @@
 {
     "name": "Railings",
     "type": "railing",
-    "image": "images/railings/railings.jpg",
+    "image": "images/railings/railing1.jpg",
     "images": 
         ["/images/railings/railing1.jpg",
         "/images/railings/railing2.jpg",

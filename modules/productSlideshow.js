@@ -27,7 +27,8 @@ export function productSlideshow(data) {
         productImage.removeAttribute('class');
         currentThumb = document.getElementById(index);
         currentThumb.setAttribute('class', 'current');
-    })
+    });
+
     const interval = setInterval(() => {
         productImage.setAttribute('class', 'transition');
             index++;

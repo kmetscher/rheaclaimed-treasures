@@ -233,7 +233,7 @@ input, textarea {
 .product {
     display: grid;
     grid-template-columns: 31vw 31vw;
-    grid-template-rows: auto 8vw;
+    grid-template-rows: auto auto;
     padding: 1vw;
     margin-top: 1vw;
     border-style: solid;
@@ -249,19 +249,23 @@ input, textarea {
     grid-column: 1 / 3;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-content: center;
 }
 
 .product-thumbs img {
+    max-width: 8vw;
+    max-height: 8vw;
     cursor: pointer;
     margin-top: 1vw;
     transition: all, 0.25s;
 }
 
 .product-thumbs .current {
-    border-style: solid;
-    border-color: black;
+    border: none;
+    transform: scale(1.1);
+    opacity: 60%;
 }
 
 #product-image {
@@ -457,7 +461,7 @@ input, textarea {
     .product {
         display: grid;
         grid-template-columns: 80vw;
-        grid-template-rows: 80vw 12vw auto;
+        grid-template-rows: 80vw auto auto;
         padding: 1vw;
         margin-top: 1vw;
         border-style: solid;
@@ -466,29 +470,35 @@ input, textarea {
     
     .product-visual {
         justify-self: center;
-        margin-bottom: 1vw;
+        align-self: center;
+        margin: 2vw 2vw 2vw 2vw;
     }
 
     .product-thumbs {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 20vw 20vw 20vw 20vw;
+        grid-auto-rows: 20vw;
         align-content: center;
+        justify-items: center;
     }
     
     .product-thumbs img {
+        max-width: 18vw;
+        max-height: 18vw;
         transition: all, 0.25s;
+        align-self: center;
     }
     
     .product-thumbs .current {
-        border-style: solid;
-        border-color: black;
+        border: none;
+        transform: scale(1.1);
+        opacity: 60%;
     }
     
     #product-image {
-        max-width: 80vw;
+        max-width: 79vw;
         max-height: 100%;
         transition: opacity, 1s;
     }
